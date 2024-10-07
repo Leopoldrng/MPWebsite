@@ -1,0 +1,652 @@
+/* Reset-Stile */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Grundlegende Stile */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #fff;
+    background-color: #000;
+    scroll-behavior: smooth;
+}
+
+/* Header-Stile */
+header {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  
+    transition: top 0.3s;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+header {
+    background-color: transparent;
+    transition: background-color 0.3s, top 0.3s;
+}
+
+/* Hintergrundfarbe der Navbar nach Scrollen */
+header.scrolled {
+    background-color: #000;
+}
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-title h1 {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Navigation-Stile */
+/* Navigation-Stile */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* Mobile Navigation-Stile */
+/* Menü-Icon-Stil für Desktop und Mobile */
+.menu-toggle {
+    display: none; /* Standardmäßig ausgeblendet */
+}
+
+/* Mobile Navigation */
+/* Menü-Icon-Stil */
+.menu-toggle {
+    display: none; /* Standardmäßig ausgeblendet */
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        color: #fff;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 1500;
+        transition: transform 0.3s ease;
+    }
+
+    /* Hamburger-Menü-Animation - wird zu einem "X" */
+    .nav-open .menu-toggle {
+        transform: rotate(90deg);
+    }
+
+    /* Navigation ist standardmäßig ausgeblendet und kommt animiert von oben */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        border-top: 1px solid #333;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Zeigt die Navigation mit einer Einblend-Animation */
+    header.nav-open nav ul {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    nav ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        color: #ccc;
+        font-weight: 500;
+        padding: 10px 0;
+        display: block;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #fff;
+    }
+}
+
+/* Allgemeine Abschnittsstile */
+section {
+    padding: 80px 20px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+/* Landingpage-Stile */
+.landing {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.landing-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.landing-content .landing-logo {
+    width: 120px; /* Logo-Größe anpassen */
+    margin-bottom: 20px; /* Abstand zum Titel */
+}
+
+.landing-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #fff;
+    animation: fadeInDown 1s ease-out;
+}
+
+.landing-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #ccc;
+    animation: fadeInUp 1s ease-out;
+}
+.landing-content .button {
+    background-color: #fff;
+    color: #000;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Hover-Effekt für den Button auf der Landingpage */
+.landing-content .button:hover {
+    background-color: #ccc;
+}
+.about-text {
+    max-width: 800px;
+    margin: 0 auto 60px auto; /* Zentriert und Abstand nach unten */
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+    text-align: center;
+    padding: 0 20px;
+}
+/* Über uns - Carousel */
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Zentriert die Inhalte vertikal */
+}
+
+.carousel-slide img {
+    width: 100%;         /* Füllt den gesamten Bereich */
+    max-width: 600px;    /* Begrenzt die Breite des Bildes */
+    height: 400px;       /* Einheitliche Höhe für alle Bilder */
+    object-fit: cover;   /* Schneidet das Bild zu, um den Container zu füllen */
+    margin-bottom: 20px; border-radius: 15px
+}
+
+.carousel-slide h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.carousel-slide p {
+    font-size: 16px;
+    color: #ccc;
+    max-width: 800px;
+    text-align: center;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.carousel-button.left {
+    left: 0;
+}
+
+.carousel-button.right {
+    right: 0;
+}
+/* Unser Team */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.team-member {
+    flex: 1 1 calc(50% - 80px);
+    max-width: calc(50% - 80px);
+    text-align: center;
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #ccc;
+    padding: 0 20px;
+}
+
+/* Unsere Partner */
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.partner {
+    flex: 1 1 calc(25% - 80px);
+    max-width: calc(25% - 80px);
+    text-align: center;
+}
+
+.partner img {
+    max-width: 50%;
+    max-height: 50%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Kontaktformular */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 0;
+    animation: fadeIn 1s ease-out;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #222;
+    color: #fff;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #fff;
+    outline: none;
+}
+
+form button {
+    background-color: #fff;
+    color: #000;
+    padding: 15px 30px;
+    border: none;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ccc;
+}
+
+/* Footer-Stile */
+/* Footer-Stile */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    border-top: 1px solid #333;
+}
+
+footer p {
+    margin: 0;
+    color: #fff;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* Stile für rechtliche Texte */
+.legal-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    padding: 0 20px;
+}
+
+.legal-text p {
+    margin-bottom: 20px;
+}
+
+.legal-text strong {
+    color: #fff;
+}
+
+
+/* Animationen */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    } to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    } to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+/* Responsives Design */
+@media (max-width: 1024px) {
+    .team-member {
+        flex: 1 1 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+    }
+
+    .partner {
+        flex: 1 1 calc(33.33% - 40px);
+        max-width: calc(33.33% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-title {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        margin: 5px 0;
+    }
+
+    .team-member, .partner {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .carousel-button {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    section h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+}
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.cookie-consent p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.cookie-button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cookie-button:hover {
+    background-color: #ccc;
+}
+#form-messages {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Fade-In und Slide-Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Initialzustand für Animationen */
+.animate {
+    opacity: 0;
+}
+
+/* Klassen zum Starten der Animationen */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.6s ease forwards;
+}
+/* Sichtbarkeit der Animationen */
+.animate.visible {
+    opacity: 1;
+}
+
+.animate.fade-in-up.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate.fade-in-left.visible {
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.animate.fade-in-right.visible {
+    animation: fadeInRight 0.6s ease forwards;
+}
